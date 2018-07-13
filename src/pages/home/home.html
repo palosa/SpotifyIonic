@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Listado de las canciones de Spotify</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-searchbar (ionInput)="search($event)"></ion-searchbar>
+  <div *ngIf="items?.length>0">
+  <ion-list *ngFor="let i of items">
+    <ion-item><p>{{i.name}}</p> 
+    <button ion-button color="primary" (tap)="searchAlbums(i.id, i.name, i.album.name, i.album.release_date, i.artists[0].name)">Detalle</button>
+    </ion-item>
+  </ion-list>
+</div>
+</ion-content>
